@@ -9,8 +9,9 @@ RUN apt-get update
 RUN apt-get -qq install postgresql-9.3
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN su postgres -c '/usr/lib/postgresql/9.3/bin/postgres --single -c config-file=/etc/postgresql/9.3/main/postgresql.conf <<< "alter user postgres with password '"'"'postgres_password'"'"';"'
 RUN echo 'host all all 0.0.0.0/0 md5' >> /etc/postgresql/9.3/main/pg_hba.conf
+
+ENV PASSWORD postgres_password
 
 VOLUME /var/lib/postgresql/9.3/main/
 VOLUME /var/log/postgresql/
