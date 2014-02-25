@@ -17,4 +17,5 @@ VOLUME /var/log/postgresql/
 
 EXPOSE 5432
 
-ENTRYPOINT ["su", "postgres", "-c", "/usr/lib/postgresql/9.3/bin/postgres -c config-file=/etc/postgresql/9.3/main/postgresql.conf -c listen-addresses=*"]
+ADD start-postgres.sh start-postgres.sh
+ENTRYPOINT ["./start-postgres.sh"]
