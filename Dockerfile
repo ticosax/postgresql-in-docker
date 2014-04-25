@@ -8,9 +8,9 @@ RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc
 RUN apt-get update
 RUN apt-get -qq install curl
 RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-RUN apt-get update
-RUN apt-get -qq install postgresql-9.3 postgresql-contrib-9.3
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update &&\
+    apt-get -qq install postgresql-9.3 postgresql-contrib-9.3 &&\
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD syslog-ng.postgresql.conf /etc/syslog-ng/conf.d/postgresql.conf
 
