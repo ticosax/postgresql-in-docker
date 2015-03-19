@@ -1,6 +1,6 @@
 FROM phusion/baseimage:0.9.16
 
-MAINTAINER Nicolas Delaby <nicolas.delaby@ezeep.com>
+MAINTAINER Nicolas Delaby <ticosax@free.fr>
 
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 RUN apt-get update
